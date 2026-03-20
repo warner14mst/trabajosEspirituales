@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <style>
+        /* Estilos generales de la caja de chat */
+        .chat-container {
+            width: 300px; /* Ajusta según lo necesites */
+            height: 450px; /* Ajusta según la cantidad de comentarios */
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Cabecera del chat */
+        .chat-header {
+            background-color: #ccc;
+            padding: 10px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Cuerpo donde van los comentarios */
+        .chat-body {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: white;
+        }
+
+        /* Pie del chat donde se escribe */
+        .chat-footer {
+            display: flex;
+            align-items: center;
+            background: #ddd;
+            padding: 10px;
+        }
+
+        .chat-footer input {
+            flex-grow: 1;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .icon-btn,
+        .emoji-btn,
+        .font-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <!-- Cabecera del chat -->
+        <div class="chat-header">
+            Chat
+            <button class="close-btn">✖</button>
+        </div>
+        
+        <!-- Cuerpo del chat (Aquí van los comentarios) -->
+        <div class="chat-body">
+            <!-- Tus comentarios van aquí -->
+        </div>
+
+        <!-- Pie de chat -->
+        <div class="chat-footer">
+            <button class="icon-btn">📷</button>
+            <input type="text" placeholder="Escriba aquí">
+            <button class="emoji-btn">😊</button>
+            <button class="font-btn">A</button>
+        </div>
+    </div>
+
+</body>
+</html>

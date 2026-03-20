@@ -1,0 +1,216 @@
+.nav{
+   width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 6px  20px;
+    background-color: rgb(132, 96, 167);
+position: fixed;
+    top: 0;
+    left: 0;
+    position: sticky;
+    
+    
+    
+ 
+    
+    
+    
+}
+.nav__ul{
+    margin: 0; 
+    flex-wrap: nowrap;
+   display: flex;
+   justify-content: center;
+}
+.nav__item{
+    list-style: none;
+}
+.nav__logo-container, .nav__ul-container{
+  flex-grow: 4;
+}
+.nav__link{
+    color: rgb(7, 7, 7);
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10%;
+    margin: 2px;
+    background-color: rgba(91, 204, 98, 0.527);
+    font-size: 30px;
+    
+    
+    
+}
+.nav__link:hover{
+    background-color: rgb(127, 15, 150);
+    border: 20px;
+    outline: 2px solid rgb(20, 20, 20);
+    outline-offset: -7px;
+}
+.nav__logo{
+    width: 60px;
+height:50px ;
+left: 20px;
+
+}
+.link--login{
+    background-color: black;
+    color: azure;
+    border-radius: 20px;
+    padding: 8x 30px;
+    margin-left: 6px;
+}
+.link--login:hover{
+    background-color: rgb(6, 6, 109);
+}
+
+.nav__caja{
+    margin: 10px;
+}
+.container{
+
+    text-align: center;
+    margin-top: 60px;
+}
+p{
+    color: rgb(238, 238, 243);
+    background-color: blueviolet;
+    width: 40%;
+    height: 40%;
+    right: 50%;
+    text-align: center;
+    font-size: 25px;
+    
+
+
+     }
+
+
+h1{
+    color: rgb(34, 6, 59);
+    background-color: rgb(226, 222, 216);
+text-align: center;
+font-size: 250%;
+
+}
+body{
+    background-image: url("175f8c62ee27bd4fb7ea4f35307d0887.jpg");
+    height: 100vh;
+    margin: 0;
+    background-size: cover;
+    justify-content: center;
+    display: grid;
+
+    
+    
+    
+}
+h2{
+    color: azure;
+    border-radius: 5%;
+    font-size: 300%;
+    
+}
+.flexbox{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.flexbox__chat {
+    width: 300px; /* Ajusta seg��n lo necesites */
+    height: 450px; /* Ajusta seg��n la cantidad de comentarios */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    right: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    bottom: 10px;
+    overflow: hidden;
+    
+
+}
+
+
+
+
+
+
+/* Cabecera del chat */
+.chat-header {
+    background-color: #ccc;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Cuerpo donde van los comentarios */
+.chat-body {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: white;
+    text-align: center;
+   
+
+}
+
+/* Pie del chat donde se escribe */
+.chat-footer {
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    padding: 10px;
+}
+
+.chat-footer input {
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.icon-btn,
+.emoji-btn,
+.font-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+
+#comments {
+  max-width: 600px;
+  margin: 0 auto;
+  color: black;
+}
+.comment-container {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+h5{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(176, 189, 189);
+   font-size: 30px;
+   border-radius: 45px;
+}
