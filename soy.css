@@ -1,216 +1,168 @@
-.nav{
-   width: 100%;
+/* Base y Fondo */
+body {
+    background-image: url("175f8c62ee27bd4fb7ea4f35307d0887.jpg");
+    min-height: 100vh;
+    margin: 0;
+    background-size: cover;
+    background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Navegación */
+.nav {
+    width: 100%;
     display: flex;
     justify-content: center;
-    padding: 6px  20px;
+    padding: 10px 0;
     background-color: rgb(132, 96, 167);
-position: fixed;
-    top: 0;
-    left: 0;
     position: sticky;
-    
-    
-    
- 
-    
-    
-    
+    top: 0;
+    z-index: 1000; /* Asegura que esté siempre arriba */
 }
-.nav__ul{
-    margin: 0; 
-    flex-wrap: nowrap;
-   display: flex;
-   justify-content: center;
-}
-.nav__item{
+
+.nav__ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones bajen si no caben en móviles */
+    justify-content: center;
     list-style: none;
 }
-.nav__logo-container, .nav__ul-container{
-  flex-grow: 4;
-}
-.nav__link{
+
+.nav__link {
     color: rgb(7, 7, 7);
     text-decoration: none;
     display: inline-block;
-    padding: 10px;
-    border-radius: 10%;
-    margin: 2px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin: 5px;
     background-color: rgba(91, 204, 98, 0.527);
-    font-size: 30px;
-    
-    
-    
+    font-size: 1.2rem; /* Tamaño ajustable al dispositivo */
+    transition: 0.3s;
 }
-.nav__link:hover{
-    background-color: rgb(127, 15, 150);
-    border: 20px;
-    outline: 2px solid rgb(20, 20, 20);
-    outline-offset: -7px;
-}
-.nav__logo{
-    width: 60px;
-height:50px ;
-left: 20px;
 
+.nav__link:hover {
+    background-color: rgb(127, 15, 150);
+    outline: 2px solid rgb(20, 20, 20);
+    outline-offset: -4px;
 }
-.link--login{
+
+.nav__logo {
+    width: 60px;
+    height: auto;
+}
+
+.link--login {
     background-color: black;
     color: azure;
     border-radius: 20px;
-    padding: 8x 30px;
-    margin-left: 6px;
-}
-.link--login:hover{
-    background-color: rgb(6, 6, 109);
+    padding: 8px 25px;
 }
 
-.nav__caja{
-    margin: 10px;
-}
-.container{
-
+/* Contenido Principal */
+.container {
     text-align: center;
-    margin-top: 60px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
 }
-p{
-    color: rgb(238, 238, 243);
-    background-color: blueviolet;
-    width: 40%;
-    height: 40%;
-    right: 50%;
-    text-align: center;
-    font-size: 25px;
-    
 
-
-     }
-
-
-h1{
+h1 {
     color: rgb(34, 6, 59);
     background-color: rgb(226, 222, 216);
-text-align: center;
-font-size: 250%;
-
-}
-body{
-    background-image: url("175f8c62ee27bd4fb7ea4f35307d0887.jpg");
-    height: 100vh;
-    margin: 0;
-    background-size: cover;
-    justify-content: center;
-    display: grid;
-
-    
-    
-    
-}
-h2{
-    color: azure;
-    border-radius: 5%;
-    font-size: 300%;
-    
-}
-.flexbox{
     text-align: center;
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Se ajusta solo según la pantalla */
+    padding: 10px;
+}
+
+h2 {
+    color: azure;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+p {
+    color: rgb(238, 238, 243);
+    background-color: blueviolet;
+    width: fit-content;
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+/* Flexbox y Chat */
+.flexbox {
     display: flex;
     justify-content: center;
-    
-    
+    width: 100%;
+    padding: 20px 0;
 }
 
 .flexbox__chat {
-    width: 300px; /* Ajusta seg��n lo necesites */
-    height: 450px; /* Ajusta seg��n la cantidad de comentarios */
+    width: 90%;
+    max-width: 350px; /* Tamaño ideal para móvil y desktop */
+    height: 450px;
     background-color: #f0f0f0;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    right: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    font-family: Arial, sans-serif;
-    bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    
-
 }
 
-
-
-
-
-
-/* Cabecera del chat */
+/* Elementos del Chat */
 .chat-header {
     background-color: #ccc;
     padding: 10px;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* Cuerpo donde van los comentarios */
 .chat-body {
     flex-grow: 1;
     padding: 10px;
     overflow-y: auto;
     background: white;
-    text-align: center;
-   
-
 }
 
-/* Pie del chat donde se escribe */
 .chat-footer {
     display: flex;
-    align-items: center;
-    background: #ddd;
     padding: 10px;
+    background: #ddd;
 }
 
 .chat-footer input {
     flex-grow: 1;
-    padding: 5px;
-    border: none;
+    padding: 8px;
     border-radius: 5px;
-    outline: none;
+    border: 1px solid #ccc;
 }
 
-.icon-btn,
-.emoji-btn,
-.font-btn {
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-
+/* Comentarios y Otros */
 #comments {
-  max-width: 600px;
-  margin: 0 auto;
-  color: black;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
 }
+
 .comment-container {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
 }
-h5{
-    font-family: Arial, Helvetica, sans-serif;
+
+h5 {
+    font-family: Arial, sans-serif;
     background-color: rgb(176, 189, 189);
-   font-size: 30px;
-   border-radius: 45px;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
 }
